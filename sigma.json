@@ -1,0 +1,48 @@
+{
+  "symbol": "sigma",
+  "name_ar": "ثابت ستيفان-بولتزمان",
+  "name_en": "Stefan-Boltzmann constant",
+  "value": "5.670374419",
+  "exponent": -8,
+  "unit": "W m^-2 K^-4",
+  "dimensional_formula": "M T^-3 Θ^-4",
+  "definitional_status": "defined_exact",
+  "uncertainty_type": "exact",
+  "standard_uncertainty": null,
+  "relative_uncertainty": null,
+  "coverage_factor_k": null,
+  "codata_version": "CODATA 2022",
+  "source_ref": {
+    "source_id": "nist-codata-2022-wall",
+    "url": "https://physics.nist.gov/cuu/pdf/wall_2022.pdf",
+    "retrieved_at": "2026-08-31T00:00:00Z",
+    "archive_hash_sha256": "0e9cabf28dbfd6a5e9695dec3a345c21997edc67584db670cf84f45c59d73855"
+  },
+  "verification_status": "VALIDATING",
+  "history": [
+    {
+      "codata_version": "CODATA 2014",
+      "value": "5.670367",
+      "exponent": -8,
+      "standard_uncertainty": "0.000013",
+      "relative_uncertainty": "2.3e-6",
+      "source_id": "nist-codata-2014-wall"
+    },
+    {
+      "codata_version": "CODATA 2018",
+      "value": "5.670374419",
+      "exponent": -8,
+      "standard_uncertainty": null,
+      "relative_uncertainty": null,
+      "source_id": "nist-codata-2018-wall"
+    },
+    {
+      "codata_version": "CODATA 2022",
+      "value": "5.670374419",
+      "exponent": -8,
+      "standard_uncertainty": null,
+      "relative_uncertainty": null,
+      "source_id": "nist-codata-2022-wall"
+    }
+  ]
+}

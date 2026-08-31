@@ -1,0 +1,48 @@
+{
+  "symbol": "e",
+  "name_ar": "الشحنة الأولية",
+  "name_en": "elementary charge",
+  "value": "1.602176634",
+  "exponent": -19,
+  "unit": "C",
+  "dimensional_formula": "I T",
+  "definitional_status": "defined_exact",
+  "uncertainty_type": "exact",
+  "standard_uncertainty": null,
+  "relative_uncertainty": null,
+  "coverage_factor_k": null,
+  "codata_version": "CODATA 2022",
+  "source_ref": {
+    "source_id": "nist-codata-2022-wall",
+    "url": "https://physics.nist.gov/cuu/pdf/wall_2022.pdf",
+    "retrieved_at": "2026-08-31T00:00:00Z",
+    "archive_hash_sha256": "0e9cabf28dbfd6a5e9695dec3a345c21997edc67584db670cf84f45c59d73855"
+  },
+  "verification_status": "VALIDATING",
+  "history": [
+    {
+      "codata_version": "CODATA 2014",
+      "value": "1.6021766208",
+      "exponent": -19,
+      "standard_uncertainty": "0.0000000098",
+      "relative_uncertainty": "6.1e-9",
+      "source_id": "nist-codata-2014-wall"
+    },
+    {
+      "codata_version": "CODATA 2018",
+      "value": "1.602176634",
+      "exponent": -19,
+      "standard_uncertainty": null,
+      "relative_uncertainty": null,
+      "source_id": "nist-codata-2018-wall"
+    },
+    {
+      "codata_version": "CODATA 2022",
+      "value": "1.602176634",
+      "exponent": -19,
+      "standard_uncertainty": null,
+      "relative_uncertainty": null,
+      "source_id": "nist-codata-2022-wall"
+    }
+  ]
+}
