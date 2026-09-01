@@ -1,0 +1,14 @@
+{
+  "source_id": "nist-codata-2014-wall",
+  "title": "CODATA Recommended Values of the Fundamental Physical Constants: 2014 (NIST SP 961, Sept 2015)",
+  "publisher": "NIST / CODATA Task Group on Fundamental Constants (TGFC)",
+  "trust_level": 1,
+  "url": "https://www.nist.gov/system/files/documents/pml/div684/fcdc/wall2014.pdf",
+  "retrieved_at": "2026-08-31T00:00:00Z",
+  "archive_hash_sha256": "58c4ed9b24023bf0f218a7d333f1e08ac9da02568773f5b9ff89b242c4812d57",
+  "archive_hash_note_ar": "هذا hash لملف نصي (snapshot) مستخرَج عبر أداة web_fetch من الصفحة/الملف الأصلي، وليس hash للبايتات الخام لملف PDF الأصلي. سكربت ingest_codata.py يجب أن يُشغَّل لاحقًا في بيئة CI لتنزيل ملف PDF الخام مباشرة وحساب hash حقيقي له بديلًا عن هذا.",
+  "archive_status": "TEXT_SNAPSHOT_ARCHIVED",
+  "source_status": "AVAILABLE",
+  "verification_status": "VALIDATING",
+  "last_verified": "2026-08-31"
+}

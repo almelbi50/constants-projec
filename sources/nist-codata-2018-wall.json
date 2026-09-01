@@ -1,0 +1,14 @@
+{
+  "source_id": "nist-codata-2018-wall",
+  "title": "CODATA Recommended Values of the Fundamental Physical Constants: 2018 (NIST SP 961, May 2019)",
+  "publisher": "NIST / CODATA Task Group on Fundamental Constants (TGFC)",
+  "trust_level": 1,
+  "url": "https://physics.nist.gov/cuu/pdf/wall_2018.pdf",
+  "retrieved_at": "2026-08-31T00:00:00Z",
+  "archive_hash_sha256": "f0da0ecb90a7f4450900f39da0c258ca991799d9b5926b704e3e49b0ff958a6b",
+  "archive_hash_note_ar": "hash لملف نصي (snapshot) مستخرَج عبر web_fetch، وليس hash للبايتات الخام لملف PDF الأصلي. يُستبدل لاحقًا بـ hash حقيقي للملف الخام عبر ingest_codata.py.",
+  "archive_status": "TEXT_SNAPSHOT_ARCHIVED",
+  "source_status": "AVAILABLE",
+  "verification_status": "VALIDATING",
+  "last_verified": "2026-08-31"
+}
