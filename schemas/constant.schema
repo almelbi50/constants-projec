@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://phy-lab.com/schemas/constant.schema.json",
+  "title": "Physical Constant Record",
+  "description": "نموذج بيانات لسجل ثابت فيزيائي واحد، وفق القسم 16-ب من قواعد المشروع. يخزَّن القيمة كنص (mantissa) والأس كحقل منفصل تفاديًا لفقدان الدقة عبر float (القسم 6-ب).",
+  "type": "object",
+  "required": [
+    "symbol",
+    "name_ar",
+    "name_en",
+    "value",
+    "exponent",
+    "unit",
+    "dimensional_formula",
+    "definitional_status",
+    "uncertainty_type",
+    "standard_uncertainty",
+    "relative_uncertainty",
+    "coverage_factor_k",
+    "codata_version",
+    "source_ref",
+    "verification_status",
+    "history"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "symbol": {
+      "type": "string",
+      "description": "الرمز العلمي القياسي للثابت، مثل h أو G أو alpha.",
+      "minLength": 1,
+      "maxLength": 16
+    },
+    "name_ar": {
+      "type": "string",
+      "description": "الاسم العلمي بالعربية، يجب أن يتطابق مع الترجمة المعتمدة في glossary.json عند وجود مصطلح مقابل."
+    },
+    "name_en": {
+      "type": "string",
+      "description": "الاسم العلمي الرسمي بالإنجليزية كما ورد في مصدر CODATA/NIST."
+    },
+    "value": {
+      "type": "string",
+      "description": "الأرقام المعنوية للقيمة (mantissa) كنص، بدون الأس وبدون رمز الوحدة. مثال: '6.626070150' لثابت بلانك. يُمنع تخزين هذا الحقل كـ float.",
+      "pattern": "^-?[0-9]+(\\.[0-9]+)?$"
+    },
+    "exponent": {
+      "type": "integer",
+      "description": "الأس العشري (القوة العشرية) منفصلًا عن value، وفق القسم 6-ب. مثال: -34 يعني ×10⁻³⁴. يكون 0 إذا لم يكن للقيمة أس عشري."
+    },
+    "unit": {
+      "type": "string",
+      "description": "وحدة SI بصيغة نصية موحدة، مثال: 'J Hz^-1' أو 'm^3 kg^-1 s^-2'."
+    },
+    "dimensional_formula": {
+      "type": "string",
+      "description": "الصيغة البعدية بدلالة M (كتلة) L (طول) T (زمن) وغيرها، للتحقق الآلي البعدي (القسم 9). مثال: 'M L^2 T^-1'."
+    },
+    "definitional_status": {
+      "type": "string",
+      "enum": ["defined_exact", "measured"],
+      "description": "هل القيمة محددة تمامًا بالتعريف (بعد إعادة تعريف SI 2019) أم مقيسة تجريبيًا (القسم 7-ب)."
+    },
+    "uncertainty_type": {
+      "type": "string",
+      "enum": ["exact", "standard", "expanded"],
+      "description": "نوع عدم اليقين المرتبط بالقيمة."
+    },
+    "standard_uncertainty": {
+      "type": ["string", "null"],
+      "description": "عدم اليقين المعياري (1-sigma) كنص، بنفس نظام mantissa. null إذا كانت القيمة exact.",
+      "pattern": "^[0-9]+(\\.[0-9]+)?$"
+    },
+    "relative_uncertainty": {
+      "type": ["string", "null"],
+      "description": "عدم اليقين النسبي كنص (بصيغة علمية أو عشرية)، null إذا كانت القيمة exact."
+    },
+    "coverage_factor_k": {
+      "type": ["number", "null"],
+      "description": "معامل التغطية k إذا كان عدم اليقين موسّعًا (expanded)، وإلا null."
+    },
+    "codata_version": {
+      "type": "string",
+      "description": "إصدار CODATA الحالي المعتمد لهذا السجل، مثل 'CODATA 2022'.",
+      "pattern": "^CODATA [0-9]{4}$"
+    },
+    "source_ref": {
+      "type": "object",
+      "description": "إشارة إلى سجل المصدر في /sources/ (القسم 5-ب و30).",
+      "required": ["source_id", "url", "retrieved_at", "archive_hash_sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "description": "معرّف سجل المصدر في /sources/{source_id}.json."
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "تاريخ/وقت السحب بصيغة ISO 8601."
+        },
+        "archive_hash_sha256": {
+          "type": ["string", "null"],
+          "description": "SHA-256 لملف الـ snapshot المؤرشف. null فقط أثناء انتظار تشغيل ingest_codata.py الفعلي (حالة مؤقتة يجب ألا تبقى null في السجل النهائي المعتمد)."
+        }
+      }
+    },
+    "verification_status": {
+      "type": "string",
+      "enum": [
+        "RESEARCHING",
+        "VALIDATING",
+        "VERIFIED",
+        "NEEDS_REVIEW",
+        "OUTDATED",
+        "UPDATE_REQUIRED"
+      ],
+      "description": "حالة السجل وفق القسم 31. لا تكون VERIFIED إلا بعد اجتياز التحقق التناسقي (القسم 9-ب)."
+    },
+    "history": {
+      "type": "array",
+      "description": "سلسلة القيم عبر إصدارات CODATA (القسم 18-ب).",
+      "items": {
+        "type": "object",
+        "required": ["codata_version", "value", "exponent", "standard_uncertainty", "relative_uncertainty", "source_id"],
+        "additionalProperties": false,
+        "properties": {
+          "codata_version": { "type": "string", "pattern": "^CODATA [0-9]{4}$" },
+          "value": { "type": "string" },
+          "exponent": { "type": "integer" },
+          "standard_uncertainty": { "type": ["string", "null"] },
+          "relative_uncertainty": { "type": ["string", "null"] },
+          "source_id": { "type": "string" }
+        }
+      },
+      "minItems": 1
+    }
+  }
+}
