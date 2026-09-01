@@ -1,0 +1,17 @@
+CODATA RECOMMENDED VALUES OF THE FUNDAMENTAL PHYSICAL CONSTANTS: 2014
+NIST SP 961 (Sept/2015) Values from: P. J. Mohr, D. B. Newell, and B. N. Taylor, arXiv:1507.07956
+speed of light in vacuum c, c0 299 792 458 (exact) m s-1
+magnetic constant mu0 4*pi x 10-7 (exact) N A-2 = 12.566 370 614... x 10-7 N A-2
+electric constant 1/mu0c^2 epsilon0 8.854 187 817... x 10-12 F m-1
+Newtonian constant of gravitation G 6.674 08(31) x 10-11 m3 kg-1 s-2
+Planck constant h 6.626 070 040(81) x 10-34 J s
+elementary charge e 1.602 176 6208(98) x 10-19 C
+fine-structure constant alpha 7.297 352 5664(17) x 10-3
+inverse fine-structure constant alpha-1 137.035 999 139(31)
+Rydberg constant R_inf 10 973 731.568 508(65) m-1
+electron mass me 9.109 383 56(11) x 10-31 kg
+proton mass mp 1.672 621 898(21) x 10-27 kg
+Avogadro constant NA, L 6.022 140 857(74) x 1023 mol-1
+Boltzmann constant R/NA k 1.380 648 52(79) x 10-23 J K-1
+Source: https://www.nist.gov/system/files/documents/pml/div684/fcdc/wall2014.pdf
+Retrieved via web_fetch on 2026-08-31 as a text-extraction snapshot (not raw PDF bytes).

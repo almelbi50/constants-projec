@@ -1,0 +1,17 @@
+CODATA RECOMMENDED VALUES OF THE FUNDAMENTAL PHYSICAL CONSTANTS: 2022
+NIST SP 961 (May 2024)
+speed of light in vacuum c 299 792 458 (exact) m s-1
+Newtonian constant of gravitation G 6.674 30(15) x 10-11 m3 kg-1 s-2
+Planck constant h 6.626 070 15 x 10-34 (exact) J Hz-1
+elementary charge e 1.602 176 634 x 10-19 (exact) C
+vacuum magnetic permeability mu0 1.256 637 061 27(20) x 10-6 N A-2
+vacuum electric permittivity epsilon0 8.854 187 8188(14) x 10-12 F m-1
+fine-structure constant alpha 7.297 352 5643(11) x 10-3
+inverse fine-structure constant alpha-1 137.035 999 177(21)
+Rydberg constant R_inf 10 973 731.568 157(12) [m-1]
+electron mass me 9.109 383 7139(28) x 10-31 kg
+proton mass mp 1.672 621 925 95(52) x 10-27 kg
+Boltzmann constant k 1.380 649 x 10-23 (exact) J K-1
+Avogadro constant NA 6.022 140 76 x 1023 (exact) mol-1
+Source: https://physics.nist.gov/cuu/pdf/wall_2022.pdf
+Retrieved via web_fetch on 2026-08-31 as a text-extraction snapshot (not raw PDF bytes).
