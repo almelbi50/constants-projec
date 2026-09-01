@@ -1,11 +1,11 @@
 {
-  "symbol": "F",
-  "name_ar": "ثابت فاراداي",
-  "name_en": "Faraday constant",
-  "value": "96485.33212",
-  "exponent": 0,
-  "unit": "C mol^-1",
-  "dimensional_formula": "I T N^-1",
+  "symbol": "k_B",
+  "name_ar": "ثابت بولتزمان",
+  "name_en": "Boltzmann constant",
+  "value": "1.380649",
+  "exponent": -23,
+  "unit": "J K^-1",
+  "dimensional_formula": "M L^2 T^-2 Θ^-1",
   "definitional_status": "defined_exact",
   "uncertainty_type": "exact",
   "standard_uncertainty": null,
@@ -22,24 +22,24 @@
   "history": [
     {
       "codata_version": "CODATA 2014",
-      "value": "96485.33289",
-      "exponent": 0,
-      "standard_uncertainty": "0.00059",
-      "relative_uncertainty": "6.1e-9",
+      "value": "1.38064852",
+      "exponent": -23,
+      "standard_uncertainty": "0.00000079",
+      "relative_uncertainty": "5.7e-7",
       "source_id": "nist-codata-2014-wall"
     },
     {
       "codata_version": "CODATA 2018",
-      "value": "96485.33212",
-      "exponent": 0,
+      "value": "1.380649",
+      "exponent": -23,
       "standard_uncertainty": null,
       "relative_uncertainty": null,
       "source_id": "nist-codata-2018-wall"
     },
     {
       "codata_version": "CODATA 2022",
-      "value": "96485.33212",
-      "exponent": 0,
+      "value": "1.380649",
+      "exponent": -23,
       "standard_uncertainty": null,
       "relative_uncertainty": null,
       "source_id": "nist-codata-2022-wall"

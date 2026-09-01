@@ -1,11 +1,11 @@
 {
-  "symbol": "F",
-  "name_ar": "ثابت فاراداي",
-  "name_en": "Faraday constant",
-  "value": "96485.33212",
+  "symbol": "R_K",
+  "name_ar": "ثابت فون كليتزنغ",
+  "name_en": "von Klitzing constant",
+  "value": "25812.80745",
   "exponent": 0,
-  "unit": "C mol^-1",
-  "dimensional_formula": "I T N^-1",
+  "unit": "ohm",
+  "dimensional_formula": "M L^2 T^-3 I^-2",
   "definitional_status": "defined_exact",
   "uncertainty_type": "exact",
   "standard_uncertainty": null,
@@ -22,15 +22,15 @@
   "history": [
     {
       "codata_version": "CODATA 2014",
-      "value": "96485.33289",
+      "value": "25812.8074555",
       "exponent": 0,
-      "standard_uncertainty": "0.00059",
-      "relative_uncertainty": "6.1e-9",
+      "standard_uncertainty": "0.0000059",
+      "relative_uncertainty": "2.3e-10",
       "source_id": "nist-codata-2014-wall"
     },
     {
       "codata_version": "CODATA 2018",
-      "value": "96485.33212",
+      "value": "25812.80745",
       "exponent": 0,
       "standard_uncertainty": null,
       "relative_uncertainty": null,
@@ -38,7 +38,7 @@
     },
     {
       "codata_version": "CODATA 2022",
-      "value": "96485.33212",
+      "value": "25812.80745",
       "exponent": 0,
       "standard_uncertainty": null,
       "relative_uncertainty": null,
