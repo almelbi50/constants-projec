@@ -1,0 +1,142 @@
+{
+  "$comment_ar": "مسرد المصطلحات الموحّد وفق القسم 15-ب من قواعد المشروع. كل مقال وكل سكربت توليد محتوى (بما فيه scripts/generate_article.py) يجب أن يستورد الترجمات من هذا الملف حرفيًا ولا يخترع ترجمة بديلة لأي مصطلح مدرج هنا. إضافة مصطلح جديد لا تتطلب تعديل الكود (القسم 24) — فقط إضافة سطر جديد لمصفوفة terms.",
+  "version": 1,
+  "last_updated": "2026-09-03",
+  "terms": [
+    {
+      "term_en": "uncertainty",
+      "term_ar": "عدم اليقين",
+      "notes_ar": "وليس 'عدم التأكد' أو 'الشك'."
+    },
+    {
+      "term_en": "standard uncertainty",
+      "term_ar": "عدم اليقين المعياري",
+      "notes_ar": "عدم يقين من الدرجة 1-سيجما (1-sigma)."
+    },
+    {
+      "term_en": "relative uncertainty",
+      "term_ar": "عدم اليقين النسبي",
+      "notes_ar": null
+    },
+    {
+      "term_en": "expanded uncertainty",
+      "term_ar": "عدم اليقين الموسّع",
+      "notes_ar": "يُستخدم مع معامل التغطية k."
+    },
+    {
+      "term_en": "coverage factor",
+      "term_ar": "معامل التغطية",
+      "notes_ar": "يُرمز له عادة بـ k."
+    },
+    {
+      "term_en": "reference value",
+      "term_ar": "القيمة المرجعية",
+      "notes_ar": "وليس 'القيمة المعيارية'."
+    },
+    {
+      "term_en": "defined exact value / exact value",
+      "term_ar": "القيمة المحددة بالتعريف",
+      "notes_ar": "قيمة ثابتة بالتعريف بعد إعادة تعريف SI 2019، لا تحمل عدم يقين (القسم 7-ب)."
+    },
+    {
+      "term_en": "measured value",
+      "term_ar": "القيمة المقاسة",
+      "notes_ar": "قيمة تجريبية تحمل عدم يقين وتتحدث بين إصدارات CODATA."
+    },
+    {
+      "term_en": "derived value",
+      "term_ar": "القيمة المشتقة",
+      "notes_ar": "قيمة محسوبة من ثوابت أخرى مخزَّنة، لا قيمة مقاسة مباشرة."
+    },
+    {
+      "term_en": "conventional value",
+      "term_ar": "القيمة الاصطلاحية",
+      "notes_ar": null
+    },
+    {
+      "term_en": "CODATA",
+      "term_ar": "كوداتا",
+      "notes_ar": "لجنة البيانات العلمية والتقنية (CODATA)؛ يُذكر الاسم الإنجليزي مقترنًا عند أول ورود في المقال."
+    },
+    {
+      "term_en": "dimensional formula",
+      "term_ar": "الصيغة البعدية",
+      "notes_ar": null
+    },
+    {
+      "term_en": "dimensional analysis",
+      "term_ar": "التحليل البعدي",
+      "notes_ar": null
+    },
+    {
+      "term_en": "verification status",
+      "term_ar": "حالة التحقق",
+      "notes_ar": "القيم المسموحة: RESEARCHING, VALIDATING, VERIFIED, NEEDS_REVIEW, OUTDATED, UPDATE_REQUIRED (القسم 31) — تُذكر كما هي، لا تُترجم كقيمة enum."
+    },
+    {
+      "term_en": "cross-consistency check",
+      "term_ar": "التحقق التناسقي",
+      "notes_ar": "القسم 9-ب."
+    },
+    {
+      "term_en": "least-squares adjustment",
+      "term_ar": "تسوية المربعات الصغرى",
+      "notes_ar": null
+    },
+    {
+      "term_en": "direct measurement",
+      "term_ar": "قياس مباشر",
+      "notes_ar": null
+    },
+    {
+      "term_en": "indirect measurement",
+      "term_ar": "قياس غير مباشر",
+      "notes_ar": null
+    },
+    {
+      "term_en": "verification (experiment relation type)",
+      "term_ar": "تحقق",
+      "notes_ar": "تصنيف علاقة تجربة↔ثابت وفق القسم 11-ب، وليس مرادفًا لـ verification status."
+    },
+    {
+      "term_en": "educational estimation",
+      "term_ar": "تقدير تعليمي",
+      "notes_ar": null
+    },
+    {
+      "term_en": "SI Brochure",
+      "term_ar": "نشرة النظام الدولي للوحدات",
+      "notes_ar": null
+    },
+    {
+      "term_en": "significant figures",
+      "term_ar": "الأرقام المعنوية",
+      "notes_ar": null
+    },
+    {
+      "term_en": "snapshot",
+      "term_ar": "نسخة مؤرشفة",
+      "notes_ar": "لقطة كاملة لملف المصدر وقت السحب، وليس رابطًا فقط (القسم 5-ب)."
+    },
+    {
+      "term_en": "provenance",
+      "term_ar": "قابلية التتبع",
+      "notes_ar": "القسم 30."
+    },
+    {
+      "term_en": "retrieved at",
+      "term_ar": "تاريخ السحب",
+      "notes_ar": null
+    },
+    {
+      "term_en": "source",
+      "term_ar": "المصدر",
+      "notes_ar": null
+    },
+    {
+      "term_en": "SI unit",
+      "term_ar": "وحدة النظام الدولي",
+      "notes_ar": null
+    }
+  ]
+}
