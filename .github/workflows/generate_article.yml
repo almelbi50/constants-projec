@@ -1,0 +1,46 @@
+name: Generate Article
+
+on:
+  workflow_dispatch:
+    inputs:
+      symbol:
+        description: 'Physics constant symbol (e.g., h, G, alpha)'
+        required: true
+        type: string
+      model:
+        description: 'GLM model version (default: glm-5.3-flash)'
+        required: false
+        type: string
+        default: 'glm-5.3-flash'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Generate article with GLM
+        env:
+          GLM_API_KEY: ${{ secrets.GLM_API_KEY }}
+        run: |
+          python3 scripts/generate_article.py \
+            --symbol "${{ github.event.inputs.symbol }}" \
+            --model "${{ github.event.inputs.model || 'glm-5.3-flash' }}"
+      
+      - name: Verify generated article
+        run: |
+          SYMBOL="${{ github.event.inputs.symbol }}"
+          if [ -f "articles/${SYMBOL}.md" ]; then
+            echo "✅ Article generated: articles/${SYMBOL}.md"
+            head -20 "articles/${SYMBOL}.md"
+          else
+            echo "❌ Article generation failed"
+            exit 1
+          fi
