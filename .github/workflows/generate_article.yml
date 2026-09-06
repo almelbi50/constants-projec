@@ -13,34 +13,50 @@ on:
         type: string
         default: 'glm-5.3-flash'
 
+permissions:
+  contents: write
+
 jobs:
   generate:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      
+
       - name: Generate article with GLM
         env:
-          GLM_API_KEY: ${{ secrets.GLM_API_KEY }}
+          GLM_API_KEY: ${{ secrets.GLM_API }}
         run: |
           python3 scripts/generate_article.py \
             --symbol "${{ github.event.inputs.symbol }}" \
             --model "${{ github.event.inputs.model || 'glm-5.3-flash' }}"
-      
+
       - name: Verify generated article
         run: |
           SYMBOL="${{ github.event.inputs.symbol }}"
           if [ -f "articles/${SYMBOL}.md" ]; then
-            echo "✅ Article generated: articles/${SYMBOL}.md"
+            echo "Article generated: articles/${SYMBOL}.md"
             head -20 "articles/${SYMBOL}.md"
           else
-            echo "❌ Article generation failed"
+            echo "Article generation failed"
             exit 1
+          fi
+
+      - name: Commit generated article (draft, pending human review)
+        run: |
+          SYMBOL="${{ github.event.inputs.symbol }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "articles/${SYMBOL}.md"
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "docs: generate draft article for ${SYMBOL} (PENDING_HUMAN_REVIEW)"
+            git push
           fi
