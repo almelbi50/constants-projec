@@ -18,6 +18,16 @@ phy-lab.com كمسودة (draft) عبر WordPress REST API — لا يُنشر �
     * القسم 20 — العملية idempotent: البحث عن مقال موجود بنفس الـslug
       وتحديثه (PUT) بدل إنشاء نسخة مكررة عند إعادة تشغيل الـworkflow.
 
+ملاحظة حرجة حول الرياضيات (LaTeX):
+    generate_article.py يُخرج المعادلات بصيغة LaTeX قياسية: \\( ... \\)
+    للرياضيات داخل السطر، و \\[ ... \\] لمعادلات العرض. محوّلات Markdown
+    القياسية (بما فيها حزمة markdown المستخدمة هنا) تتعامل مع الشرطة
+    المائلة العكسية كرمز escape وتُفسد هذه الصيغة (تحذف الأقواس، تكسر
+    البنية). لذلك تُستخرَج كل كتلة رياضية وتُستبدل بعنصر نائب قبل تحويل
+    Markdown إلى HTML، ثم تُستعاد حرفيًا بعد التحويل (انظر protect_math
+    و restore_math أدناه) — لتصل سليمة إلى أي إضافة MathJax/KaTeX مفعّلة
+    على الموقع (كما هو مؤكَّد أنها مفعّلة فعليًا على phy-lab.com).
+
 الاستخدام:
     export WP_USERNAME=...
     export WP_APP_PASSWORD=...
@@ -60,6 +70,36 @@ logger = logging.getLogger("publish_wordpress")
 DEFAULT_SITE_URL = "https://phy-lab.com"
 DEFAULT_CATEGORY_NAME = "ثوابت فيزيائية"
 DEFAULT_CATEGORY_SLUG = "physical-constants"
+
+_MATH_PLACEHOLDER_PREFIX = "MATHPLACEHOLDERTOKEN"
+_MATH_BLOCK_PATTERNS = (
+    re.compile(r"\\\[.*?\\\]", re.DOTALL),  # معادلات العرض \[ ... \]
+    re.compile(r"\\\(.*?\\\)", re.DOTALL),  # رياضيات داخل السطر \( ... \)
+)
+
+
+def protect_math(text: str) -> tuple[str, dict[str, str]]:
+    """يستبدل كل كتلة LaTeX بعنصر نائب قبل تمرير النص لمحوّل Markdown."""
+    placeholders: dict[str, str] = {}
+    counter = 0
+
+    def _stash(match: re.Match[str]) -> str:
+        nonlocal counter
+        key = f"{_MATH_PLACEHOLDER_PREFIX}{counter}"
+        placeholders[key] = match.group(0)
+        counter += 1
+        return key
+
+    for pattern in _MATH_BLOCK_PATTERNS:
+        text = pattern.sub(_stash, text)
+    return text, placeholders
+
+
+def restore_math(html: str, placeholders: dict[str, str]) -> str:
+    """يستعيد كتل LaTeX الأصلية حرفيًا بعد تحويل Markdown إلى HTML."""
+    for key, original in placeholders.items():
+        html = html.replace(key, original)
+    return html
 
 
 def parse_article(path: Path) -> tuple[dict[str, str], str]:
@@ -181,7 +221,10 @@ def main(argv: list[str] | None = None) -> int:
     symbol = frontmatter.get("symbol", args.symbol)
     title = f"{name_ar} ({symbol})"
     slug = f"physical-constant-{symbol}".lower()
-    html_body = md.markdown(body, extensions=["tables", "fenced_code"])
+
+    protected_body, math_placeholders = protect_math(body)
+    html_body = md.markdown(protected_body, extensions=["tables", "fenced_code"])
+    html_body = restore_math(html_body, math_placeholders)
 
     if args.dry_run:
         print(f"=== TITLE ===\n{title}\n")
@@ -251,4 +294,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-
