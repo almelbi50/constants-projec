@@ -61,3 +61,12 @@ jobs:
             git commit -m "docs: generate draft article for ${SYMBOL} (PENDING_HUMAN_REVIEW)"
             git push
           fi
+
+      - name: Publish draft to WordPress (phy-lab.com)
+        if: success()
+        env:
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          pip install markdown --break-system-packages
+          python3 scripts/publish_wordpress.py --symbol "${{ github.event.inputs.symbol }}"
